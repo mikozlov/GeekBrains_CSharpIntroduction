@@ -14,6 +14,7 @@ namespace dz2._1
         }
         public static float GetAvgTemp()
         {
+            //todo: сделать проверку MinTemp <= MaxTemp
             float MaxTemp = UserInput.GetNumFloat("\nУкажите максимальную температуру за сутки [MaxTemp]:");
             float MinTemp = UserInput.GetNumFloat("\nУкажите минимальную температуру за сутки [MinTemp]:");
 

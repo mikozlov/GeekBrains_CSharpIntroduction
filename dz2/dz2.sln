@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.1 (avgTemperature)", "d
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.2 (monthName)", "dz2.2\dz2.2 (monthName).csproj", "{1F858D3B-0BFC-43BE-88BB-E74E36C819A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.3", "dz2.3\dz2.3.csproj", "{0C1A1BC0-F2AD-4E64-8FFF-B33F68A74A0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.3(evenUnevenNum)", "dz2.3\dz2.3(evenUnevenNum).csproj", "{0C1A1BC0-F2AD-4E64-8FFF-B33F68A74A0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.4", "dz2.4\dz2.4.csproj", "{289F98BB-6964-4984-BF5F-2667406F9884}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.4(billPrint)", "dz2.4\dz2.4(billPrint).csproj", "{289F98BB-6964-4984-BF5F-2667406F9884}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.5", "dz2.5\dz2.5.csproj", "{09BCEDE6-D0D4-4DC8-8A8F-49BAA3B0C6B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.5(rainyWinter)", "dz2.5\dz2.5(rainyWinter).csproj", "{09BCEDE6-D0D4-4DC8-8A8F-49BAA3B0C6B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.6", "dz2.6\dz2.6.csproj", "{F5C904A3-D253-4F97-91CF-314DAC404822}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz2.6(workSchedule)", "dz2.6\dz2.6(workSchedule).csproj", "{F5C904A3-D253-4F97-91CF-314DAC404822}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
