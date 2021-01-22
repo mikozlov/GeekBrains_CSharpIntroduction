@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dz2._4
 {
-    class ConsolPrint
+    class ConsolePrint
     {
         public static void DrawHorizontalLine(int offsetY, string sym, int lenght)
         {
@@ -17,22 +17,22 @@ namespace dz2._4
             }
             Console.Write("\n");
         }
-        public static void PrintTextAlign(int rowNum, string str, align align)
+        public static void PrintTextAlign(int rowNum, string str, Align align)
         {
             int horizontalStart;
             switch (align)
             {
-                case align.Left://1
+                case Align.Left://1
                     horizontalStart = 0;
                     Console.SetCursorPosition(horizontalStart, rowNum);
                     Console.WriteLine(str);
                     break;
-                case align.Right:
+                case Align.Right:
                     horizontalStart = (Console.WindowWidth - str.Length);
                     Console.SetCursorPosition(horizontalStart, rowNum);
                     Console.WriteLine(str);
                     break;
-                case align.Centr:
+                case Align.Centr:
                     horizontalStart = (Console.WindowWidth - str.Length) / 2;
                     Console.SetCursorPosition(horizontalStart, rowNum);
                     Console.WriteLine(str);
@@ -47,7 +47,7 @@ namespace dz2._4
         
         } 
     }
-    enum align
+    enum Align
     {
         Left = 1,
         Right = 2,

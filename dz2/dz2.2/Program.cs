@@ -27,7 +27,7 @@ namespace dz2._2
                 }
                 else
                 { 
-                    UserInput.errorMesseg("\nНекоретный ввод. Укажите число от 1 до 12"); 
+                    UserInput.ErrorMesseg("\nНекоретный ввод. Укажите число от 1 до 12"); 
                 }
             }
             return monthNum;

@@ -15,7 +15,7 @@ namespace dz2._5
            var temp = AvgTemp.GetAvgTemp();
            var month = MothfName.GetMonthNum();
 
-            if (month <=2 || month <= 2 && temp >= 0 )
+            if ((month <=2 || month >= 11) && temp >= 0 )
             {
                 Console.Clear();
                 Console.WriteLine("\nДождливая зима...( \nПри Собянине все зимы дождливые.");

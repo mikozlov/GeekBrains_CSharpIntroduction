@@ -22,11 +22,11 @@ namespace dz2._1
                 }
                 catch
                 {
-                    errorMesseg("Введено некорректное значение. Повторите ввод указав десятичное число\n>>");                  
+                    ErrorMesseg("Введено некорректное значение. Повторите ввод указав десятичное число\n>>");                  
                 }
             }
             return value;
-
+            ы
 
         }
         public static int GetNumInt(string userRequest)
@@ -43,12 +43,12 @@ namespace dz2._1
                 }
                 catch
                 {
-                    errorMesseg("Введено некорректное значение. Повторите ввод указав целое число\n>>");
+                    ErrorMesseg("Введено некорректное значение. Повторите ввод указав целое число от -2147483648 до 2147483647\n>>");
                 }
             }
             return value;
         }
-        public static void errorMesseg(string errorMesseg)
+        public static void ErrorMesseg(string errorMesseg)
         {
             var defColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Red;

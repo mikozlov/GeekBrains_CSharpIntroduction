@@ -14,8 +14,8 @@ namespace dz2._4
         {
             //Общие данные продавца
             string brandName = "ООО \"Веселый молочник\"" ;
-            string kkm = "00039892";
-            string inn = "007721754215";                      
+            int kkm = 00039892;
+            ulong inn = 007721754215;                      
             string emploerPost = "Кассир";
             string operationType = "Продажа";
             DateTime billCreateTime = DateTime.Now;
@@ -35,34 +35,34 @@ namespace dz2._4
             int i = 0;
             Console.WindowWidth = 40;
             Console.WindowHeight = 40;
-            ConsolPrint.DrawHorizontalLine(i++, "==", 20);
-            ConsolPrint.PrintTextAlign(i++ , brandName, align.Centr);
-            ConsolPrint.PrintTextAlign(i++, "ДОБРО ПОЖАЛОВАТЬ !", align.Centr);
-            ConsolPrint.PrintTextAlign(++i, $"ККМ:{kkm}", align.Left); ConsolPrint.PrintTextAlign(i++, $"ИНН:{inn}", align.Right);
-            ConsolPrint.PrintTextAlign(i, $"{billCreateTime}", align.Left); ConsolPrint.PrintTextAlign(i++, $"{emploerPost}", align.Right);
-            ConsolPrint.PrintTextAlign(i, $"{operationType}", align.Left); ConsolPrint.PrintTextAlign(i++, $"#{billCount}", align.Right); 
-            ConsolPrint.DrawHorizontalLine(i++, "==", 20);
+            ConsolePrint.DrawHorizontalLine(i++, "==", 20);
+            ConsolePrint.PrintTextAlign(i++ , brandName, Align.Centr);
+            ConsolePrint.PrintTextAlign(i++, "ДОБРО ПОЖАЛОВАТЬ !", Align.Centr);
+            ConsolePrint.PrintTextAlign(++i, $"ККМ:{kkm}", Align.Left); ConsolePrint.PrintTextAlign(i++, $"ИНН:{inn}", Align.Right);
+            ConsolePrint.PrintTextAlign(i, $"{billCreateTime}", Align.Left); ConsolePrint.PrintTextAlign(i++, $"{emploerPost}", Align.Right);
+            ConsolePrint.PrintTextAlign(i, $"{operationType}", Align.Left); ConsolePrint.PrintTextAlign(i++, $"#{billCount}", Align.Right); 
+            ConsolePrint.DrawHorizontalLine(i++, "==", 20);
 
             // Печать списка покупок
             
             foreach (var good in goods) 
                 {                     
-                    ConsolPrint.PrintTextAlign(i, $"{good.name}", align.Left); ConsolPrint.PrintTextAlign(i++, $"{good.count} X {good.cost}", align.Right);            
+                    ConsolePrint.PrintTextAlign(i, $"{good.name}", Align.Left); ConsolePrint.PrintTextAlign(i++, $"{good.count} X {good.cost}", Align.Right);            
                     totalCost += (good.cost*good.count);                    
                 }
 
             // Печать итого
-            ConsolPrint.DrawHorizontalLine(i++, "==", 20);                       
-            ConsolPrint.PrintTextAlign(i++, $"В т.ч. Налоги:", align.Left);
-            ConsolPrint.PrintTextAlign(i, $"По налогу А 18%:", align.Left); ConsolPrint.PrintTextAlign(i++, $"={totalCost * 0.18}", align.Right);
-            ConsolPrint.PrintTextAlign(i, $"По налогу Б 10%:", align.Left); ConsolPrint.PrintTextAlign(i++, $"={totalCost * 0.1}", align.Right);
-            ConsolPrint.PrintTextAlign(i, $"ИТОГ", align.Left); ConsolPrint.PrintTextAlign(i++, $"={totalCost}", align.Right);
-            ConsolPrint.PrintTextAlign(i, $"ОПЛАТ. КАРТОЙ", align.Left); ConsolPrint.PrintTextAlign(i++, $"={totalCost}", align.Right);
+            ConsolePrint.DrawHorizontalLine(i++, "==", 20);                       
+            ConsolePrint.PrintTextAlign(i++, $"В т.ч. Налоги:", Align.Left);
+            ConsolePrint.PrintTextAlign(i, $"По налогу А 18%:", Align.Left); ConsolePrint.PrintTextAlign(i++, $"={totalCost * 0.18}", Align.Right);
+            ConsolePrint.PrintTextAlign(i, $"По налогу Б 10%:", Align.Left); ConsolePrint.PrintTextAlign(i++, $"={totalCost * 0.1}", Align.Right);
+            ConsolePrint.PrintTextAlign(i, $"ИТОГ", Align.Left); ConsolePrint.PrintTextAlign(i++, $"={totalCost}", Align.Right);
+            ConsolePrint.PrintTextAlign(i, $"ОПЛАТ. КАРТОЙ", Align.Left); ConsolePrint.PrintTextAlign(i++, $"={totalCost}", Align.Right);
 
             // Завершение печати чека
-            ConsolPrint.DrawHorizontalLine(i++, "==", 20);            
-            ConsolPrint.PrintTextAlign(i++, "ЭКЛЗ 0699062480", align.Centr);
-            ConsolPrint.PrintTextAlign(i++, "00002589 #062444", align.Centr);
+            ConsolePrint.DrawHorizontalLine(i++, "==", 20);            
+            ConsolePrint.PrintTextAlign(i++, "ЭКЛЗ 0699062480", Align.Centr);
+            ConsolePrint.PrintTextAlign(i++, "00002589 #062444", Align.Centr);
             Console.ReadKey();
             #endregion
         }
