@@ -20,7 +20,7 @@ namespace dz4._4
                 //Циклический
                 Console.WriteLine("Алгоритм2:Число Фибоначи №{1} = {0}", getFibonachi2(fibonachiNum), fibonachiNum);                
                 //Рекурсивный
-                Console.WriteLine("Алгоритм3:Число Фибоначи №{1} = {0}", getFibonachi3(fibonachiNum).Item2, fibonachiNum);
+                Console.WriteLine("Алгоритм3:Число Фибоначи №{1} = {0}", getFibonachi3(fibonachiNum), fibonachiNum);
                 //Рекурсивный
                 Console.WriteLine("Алгоритм4:Число Фибоначи №{1} = {0}", getFibonachi4((ulong)fibonachiNum), fibonachiNum);
 
@@ -88,13 +88,12 @@ namespace dz4._4
             }
 
         }
-        public static (ulong, ulong, ulong, int) getFibonachi3(int fibonachiNum, int iterator = 0, ulong f3=2, ulong f1=0, ulong f2=1)
+        public static ulong getFibonachi3(int fibonachiNum, int iterator = 0, ulong f3=2, ulong f1=0, ulong f2=1)
         {
-            if (iterator++ < fibonachiNum)
-            {
-               return getFibonachi3(fibonachiNum, iterator, (f3 = f1 + f2), (f1 = f2), (f2 = f3));
-            }
-            return (f3, f1, f2, iterator);
+            if (iterator < fibonachiNum)            
+               return getFibonachi3(fibonachiNum, ++iterator, (f3 = f1 + f2), (f1 = f2), (f2 = f3));
+            
+            return f1;
 
         }
     }
