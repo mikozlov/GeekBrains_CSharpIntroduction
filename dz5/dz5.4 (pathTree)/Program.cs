@@ -9,12 +9,22 @@ namespace dz5._4__pathTree_
         static void Main(string[] args)
         {
 
-            string[] BasePath = { @"C:\Users\kozlovma\source\repos\GeekBrains_CSharpIntroduction" };
-            Console.WriteLine("<BasePath>-{0}", BasePath);
+            string BasePath =  @"C:\Users\kozlovma\source\repos\GeekBrains_CSharpIntroduction";
+            string logFileName = "DirectoryTree.csv";
+            if (File.Exists(logFileName)) File.Delete(logFileName);
 
-            
-           // writePathFileNames(BasePath, BasePath.Length);
-            writePathFileNamesRecursion(BasePath, BasePath.Length);
+            Console.WriteLine("<BasePath>-{0}\n", BasePath);
+            //Циклы SearchOption.AllDirectories            
+            writePathFileNames(BasePath, BasePath.Length, logFileName);
+
+            //Циклы через дерево каталогов             
+            writePathFileNames2(BasePath, BasePath.Length, logFileName);
+
+            //Рекурсия
+            writePathFileNamesRecursion(BasePath, BasePath.Length, logFileName);
+
+
+            Console.WriteLine("Создан лог-файл с описанием дерева файлов и каталогов: {0}", logFileName);
             
             Console.ReadKey();
         }
@@ -25,41 +35,56 @@ namespace dz5._4__pathTree_
           f = filePath.Split('\\');
             return f[f.Length-1];
         }
-        static void printFileNames(string filePath, int leftCutIndex)
+        static void printFileNames(string filePath, int leftCutIndex, string logFileName)
         {
             Console.WriteLine("<Path>-..{0}", filePath.Substring(leftCutIndex));
+            File.AppendAllText(logFileName,$"<Path>-..{filePath.Substring(leftCutIndex)}\n");
             var df = Directory.GetFiles(filePath);
 
             for (int i = 0; i < df.Length; i++)
             {
-                Console.WriteLine(" <File>----{0}", cutFileName(df[i]));
+                Console.WriteLine("..{1};{0}", cutFileName(df[i]), filePath.Substring(leftCutIndex));
+                File.AppendAllText(logFileName,$"..{filePath.Substring(leftCutIndex)};{cutFileName(df[i])}\n");
+                
             }
         }
 
 
-        static void writePathFileNames(string BasePath, int leftCutIndex)
+        static void writePathFileNames(string BasePath, int leftCutIndex, string logFileName)
         {  
                 var dd = Directory.GetDirectories(BasePath,"*" , SearchOption.AllDirectories );            
                     for (int j = 0; j < dd.Length; j++)
                     {
-                        printFileNames(dd[j], leftCutIndex);
+                        printFileNames(dd[j], leftCutIndex, logFileName);
                     }
         }
-        static string writePathFileNamesRecursion(object BasePath, int leftCutIndex)
+        static void writePathFileNamesRecursion(string BasePath, int leftCutIndex, string logFileName)
         {
-            string[] hh =(string[]) BasePath;
-            for (int i = 0; i < hh.Length; i++)
+            printFileNames(BasePath, leftCutIndex, logFileName);
+            if (Directory.GetDirectories(BasePath).Length != 0)
             {
-                var dd = Directory.GetDirectories(hh[i]);
-                for (int j = 0; j < dd.Length; j++)
+                var dirs = Directory.GetDirectories(BasePath);
+                for (int i = 0; i < dirs.Length; i++)
                 {
-                    printFileNames(dd[j], leftCutIndex);
-
-
+                    var dd = Directory.GetDirectories(dirs[i]);
+                    writePathFileNamesRecursion(dirs[i], leftCutIndex, logFileName);
                 }
-                return writePathFileNamesRecursion(dd, leftCutIndex);
             }
-            return "";
+            
+        }
+        static void writePathFileNamesRecursion2(string BasePath, int leftCutIndex, string logFileName)
+        {
+            printFileNames(BasePath, leftCutIndex, logFileName);
+            if (Directory.GetDirectories(BasePath).Length != 0)
+            {
+                var dirs = Directory.GetDirectories(BasePath);
+                for (int i = 0; i < dirs.Length; i++)
+                {
+                    var dd = Directory.GetDirectories(dirs[i]);
+                    writePathFileNamesRecursion(dirs[i], leftCutIndex, logFileName);
+                }
+            }
+
         }
     }
 }
