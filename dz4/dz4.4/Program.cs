@@ -13,11 +13,20 @@ namespace dz4._4
         public static int fibonachiNum;
         static void Main(string[] args)
         {
-            ulong fibonachi1 = 1;
+            ulong fibonachi1 = 0;
             ulong fibonachi2 = 1;
-            ulong fibonachi3 = 2;
+            ulong fibonachi3 = 1;
             fibonachiNum = UserInput.GetNumInt("Введите порядковый номер числа Фибоначи: ");
+
+            if (fibonachiNum==0)
+            {
+                Console.WriteLine("Число Фибоначи №0 = 0");
+                Console.ReadKey();
+                return;
+            }
+
             i = 1;
+
 
             Console.WriteLine("Число Фибоначи №{1} = {0}",  getFibonachi(ref fibonachi3, ref fibonachi1, ref fibonachi2), i-1);
 

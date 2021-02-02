@@ -23,9 +23,11 @@ namespace dz4._2
             int Sum = 0;
             string [] NumArray = Numbers.Split(' ');
 
-            for (int i =0; i < NumArray.Length; i++)
-             Sum += int.Parse(NumArray[i]);
-            
+            for (int i =0; i < NumArray.Length; i++)             
+            if (int.TryParse(NumArray[i], out int Num))
+                Sum += Num;
+
+
             return Sum;
         }
     }
