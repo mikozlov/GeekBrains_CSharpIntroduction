@@ -104,23 +104,27 @@ namespace dz5._5__toDoList_
         {
             if (!File.Exists(filePath))
                 Console.WriteLine("Пусто, братишка...");
+            if (CurentTaskList.Length >= taskNum & taskNum >0) 
+            { 
             CurentTaskList[taskNum - 1].IsDone = true;
             
             ReWriteTaskListFile(CurentTaskList);
             UpdateToDolist();
-
             ShowMeToDoList();
+            }
         }
         public static void CheckUnDone(int taskNum)
         {
             if (!File.Exists(filePath))
                 Console.WriteLine("Пусто, братишка...");
-            CurentTaskList[taskNum - 1].IsDone = false;
+            if(CurentTaskList.Length >= taskNum & taskNum > 0)
+            {
+                CurentTaskList[taskNum - 1].IsDone = false;
 
-            ReWriteTaskListFile(CurentTaskList);
-            UpdateToDolist();
-
-            ShowMeToDoList();
+                ReWriteTaskListFile(CurentTaskList);
+                UpdateToDolist();
+                ShowMeToDoList();
+            }
         }
     }
 }
