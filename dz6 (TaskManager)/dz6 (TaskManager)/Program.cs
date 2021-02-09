@@ -7,7 +7,7 @@ namespace dz6__TaskManager_
     {
         static void Main(string[] args)
         {
-
+            string userAnswer = "";
             while (true)
             {
 
@@ -21,10 +21,21 @@ namespace dz6__TaskManager_
                     Console.Write(processes[i].ProcessName);
                     Console.WriteLine();
                 }
-                Console.Write("Prompt ID to kill:>");
+                Console.Write("Prompt 'kill_by_Id' or 'kill_by_Name':>");
 
-                if (int.TryParse(Console.ReadLine(), out int idToKill))
+                userAnswer = Console.ReadLine();
+
+
+                if (userAnswer.StartsWith("kill_by_Id"))
+                 if (int.TryParse(userAnswer, out int idToKill))
                     Process.GetProcessById(idToKill).Kill();
+
+                if (userAnswer.StartsWith("kill_by_Name"))
+                    if (userAnswer.Length > 13) 
+                { 
+                  Process [] processes1 = Process.GetProcessesByName(userAnswer.Substring(13));
+                }
+
             }
             Console.ReadKey();
         }
