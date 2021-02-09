@@ -8,33 +8,49 @@ namespace dz6__TaskManager_
         static void Main(string[] args)
         {
             string userAnswer = "";
+            bool flag = false;
+            string manual = @"
+Введите запрос:
+>>'refresh'
+>>'kill_id' (пример: kill_id 12345) 
+>>'kill_name' (пример: kill_name chrome)
+";
+            MyTaskManager.showMeProcesses();
             while (true)
             {
+                flag = false;
+                Console.WriteLine(manual);
 
-                var processes = Process.GetProcesses();
 
-                for (int i = 0; i < processes.Length; i++)
-                {
-                    Console.CursorLeft = 0;
-                    Console.Write(processes[i].Id);
-                    Console.CursorLeft = 10;
-                    Console.Write(processes[i].ProcessName);
-                    Console.WriteLine();
-                }
-                Console.Write("Prompt 'kill_by_Id' or 'kill_by_Name':>");
 
                 userAnswer = Console.ReadLine();
 
 
-                if (userAnswer.StartsWith("kill_by_Id"))
-                 if (int.TryParse(userAnswer, out int idToKill))
-                    Process.GetProcessById(idToKill).Kill();
+                if (userAnswer.StartsWith("kill_id"))
+                    if (userAnswer.Length > 8)
+                        if (int.TryParse(userAnswer.Substring(8), out int idToKill))
+                        { 
+                            MyTaskManager.KillProcessById(idToKill);
+                            flag = true;
+                        }
 
-                if (userAnswer.StartsWith("kill_by_Name"))
-                    if (userAnswer.Length > 13) 
-                { 
-                  Process [] processes1 = Process.GetProcessesByName(userAnswer.Substring(13));
+
+                if (userAnswer.StartsWith("kill_name"))
+                    if (userAnswer.Length > 10)
+                    { 
+                        MyTaskManager.KillProcessByName(userAnswer.Substring(10));
+                        flag = true;
+                    }
+
+                if (userAnswer.StartsWith("refresh"))
+                {
+                    MyTaskManager.showMeProcesses();
+                    flag = true;
                 }
+                
+                if (!flag)
+                        Console.WriteLine("Ошибка! Некорректное имя команды.");
+
 
             }
             Console.ReadKey();
