@@ -1,0 +1,3 @@
+﻿2. Двоичный поиск
+Требуется написать функцию бинарного поиска, посчитать его асимптотическую сложность и проверить работоспособность функции.
+https://docs.google.com/document/d/1vj6tM6O32HKiky8jEwT9z6yI8b9Dm7UudSFoACRsVQY/edit#heading=h.rjljchac4kow
