@@ -20,6 +20,7 @@ namespace alg_dz2
         void RemoveNode(int index); // удаляет элемент по порядковому номеру
         void RemoveNode(Node node); // удаляет указанный элемент
         Node FindNode(int searchValue); // ищет элемент по его значению
+        
     }
 
 }
