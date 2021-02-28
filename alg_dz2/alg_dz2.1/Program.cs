@@ -67,6 +67,7 @@ namespace alg_dz2
 
         public void AddNodeAfter(Node node, int value)
         {
+ 
             if (node != null)
             {
             var newNode = new Node();
@@ -80,16 +81,20 @@ namespace alg_dz2
 
         public Node FindNode(int searchValue)
         {
-            Node node = FirstNode;
-
-            do
+            if (FirstNode != null)
             {
-                if (node.Value == searchValue)
-                    return node;
 
-                node = node.NextNode;
+                Node node = FirstNode;
 
-            } while (node != null);
+                do
+                {
+                    if (node.Value == searchValue)
+                        return node;
+
+                    node = node.NextNode;
+
+                } while (node != null);
+            }
 
             return null;
         }
@@ -97,6 +102,8 @@ namespace alg_dz2
         public int GetCount()
         {
             int i = 0;
+            if (FirstNode!=null)
+            {
             Node node = FirstNode;
 
             do
@@ -107,16 +114,26 @@ namespace alg_dz2
             } while (node != null);
 
                 return i;
+            }
+            return 0;
         }
 
         public void RemoveNode(int index)
         {
-
+            if (FirstNode == null)
+            {
+                return;
+            }
 
             if (index == 0)
             {
+                if (FirstNode.NextNode == null)
+                    FirstNode = null;
+                else
+                {
                 FirstNode = FirstNode.NextNode;
                 FirstNode.PrevNode = null;
+                }
                 return;
             }
             else
@@ -126,6 +143,9 @@ namespace alg_dz2
                 do
                 {
                     i++;
+                    if (node.NextNode == null)
+                        return;
+
                     node = node.NextNode;
 
                     if (i == index)
@@ -140,13 +160,12 @@ namespace alg_dz2
                             node.PrevNode.NextNode = null;
                             LastNode = node.PrevNode;
                         }
-                        
+
                         return;
                     }
 
 
-                } while (node != LastNode);
-
+                } while (node != LastNode);                
             }
 
            
@@ -154,21 +173,30 @@ namespace alg_dz2
 
         public void RemoveNode(Node node)
         {
-            if (node == FirstNode)
-            {
-                FirstNode = FirstNode.NextNode;
-                FirstNode.PrevNode = null;
+            if (node == null)            
                 return;
-            }
-            else if (node == LastNode)
-            {
-                LastNode = LastNode.PrevNode;
-                LastNode.NextNode = null;
-                return;
+            
+            if (FirstNode == node)
+                if (FirstNode.NextNode == null)
+                {
+                    FirstNode = null;
+                    LastNode = null;
+                }
+                else 
+                {
+                    FirstNode = node.NextNode;
+                    FirstNode.PrevNode = null;
+                }
 
-            }
-            node.PrevNode.NextNode = node.NextNode;
-            node.NextNode.PrevNode = node.PrevNode;
+                
+
+            if (node.PrevNode != null)
+                node.PrevNode.NextNode = node.NextNode;
+            if (node.NextNode != null)
+                node.NextNode.PrevNode = node.PrevNode;
+
+
+            
         }
         public void PrintList()
         {
