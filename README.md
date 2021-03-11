@@ -1,4 +1,4 @@
 # GeekBrains_CSharpIntroduction
-
-Не успеваю сдать, прошу дать отсрочку до 09.03
+alg_dz3
+Выполнено
 
