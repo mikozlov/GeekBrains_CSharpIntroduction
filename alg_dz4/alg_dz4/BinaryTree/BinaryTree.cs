@@ -142,7 +142,23 @@ namespace alg_dz4
             if (node.RightChild != null & node.LeftChild != null)
             {
                     TreeNode currentNode = node.RightChild;
-                    TreeNode parentNode = node;
+                TreeNode parentNode = node;
+
+                if (currentNode.LeftChild == null)
+                {
+                    node.Value = currentNode.Value;
+                    if (currentNode.RightChild != null)
+                    {
+                        parentNode.RightChild = currentNode.RightChild;
+                    }
+                    else
+                    {
+                        parentNode.RightChild = null;
+                    }
+                    return;
+                }
+
+
                     while (currentNode.LeftChild != null)
                     {
                         parentNode = currentNode;
@@ -157,7 +173,7 @@ namespace alg_dz4
                     {
                         parentNode.LeftChild = null;
                     }
-                    node.Value = currentNode.Value;
+                    
                 
             }
 
